@@ -10,12 +10,8 @@ const ShortLog = ({ className, log, ...props }: ShortLogProps) => {
 			className={`${className} flex gap-3 md:gap-5 items-center relative py-2`}
 			{...props}
 		>
-			{!log.isFirst && (
-				<div className="w-[2px] h-1/2 bg-border absolute top-0 left-5 z-0" />
-			)}
-			{!log.isLast && (
-				<div className="w-[2px] h-1/2 bg-border absolute top-1/2 left-5 z-0" />
-			)}
+			<div className="w-[2px] h-1/2 bg-border absolute top-0 left-5 z-0" />
+			<div className="w-[2px] h-1/2 bg-border absolute top-1/2 left-5 z-0" />
 			<TimelineIcon icon={log.icon} size="sm" />
 			<div className="flex-1 flex items-center flex-wrap">
 				<h2 className="text-base md:text-lg font-normal border-0 mr-5">

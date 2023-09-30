@@ -31,22 +31,16 @@ export const TIMELINE: TimelineType = [
 			url: "https://timeloom.vercel.app/",
 		},
 		location: "GitHub",
-		isFirst: true,
-		isLast: false,
 	},
 	{
 		title: "Finished the Toy version of Timeloom",
 		icon: "Zap",
 		date: new Date("2023-08-31"),
-		isFirst: false,
-		isLast: false,
 	},
 	{
 		title: "Failed to submit week 2 update in Nights & Weekends S4",
 		icon: "ThumbsDown",
 		date: new Date("2023-08-22"),
-		isFirst: false,
-		isLast: false,
 	},
 	{
 		title: "Started working on the Toy version of Timeloom",
@@ -59,8 +53,6 @@ export const TIMELINE: TimelineType = [
 			url: "https://github.com/inclinedadarsh/timeloom",
 		},
 		location: "GitHub",
-		isFirst: false,
-		isLast: false,
 	},
 	{
 		title: "Got high engagement on my tweet about Timeloom",
@@ -70,8 +62,6 @@ export const TIMELINE: TimelineType = [
 		},
 		date: new Date("2023-08-20"),
 		icon: "Twitter",
-		isFirst: false,
-		isLast: false,
 	},
 	{
 		title: "Started a GitHub repo for Timeloom",
@@ -84,8 +74,6 @@ export const TIMELINE: TimelineType = [
 		},
 		date: new Date("2023-08-19"),
 		icon: "GitHub",
-		isFirst: false,
-		isLast: false,
 	},
 	{
 		title: "Posted V1 Design of Timeloom (previously JourTech)",
@@ -95,8 +83,6 @@ export const TIMELINE: TimelineType = [
 		},
 		date: new Date("2023-08-18"),
 		icon: "Zap",
-		isFirst: false,
-		isLast: false,
 	},
 	{
 		title: "Completed 200 followers on Twitter 🎉",
@@ -106,8 +92,6 @@ export const TIMELINE: TimelineType = [
 			text: "Twitter Profile",
 			url: "https://twitter.com/inclinedadarsh",
 		},
-		isFirst: false,
-		isLast: false,
 	},
 	{
 		title: "Published a blog on my first week in Nights & Weekends S4",
@@ -117,8 +101,6 @@ export const TIMELINE: TimelineType = [
 			text: "Blog Link",
 			url: "https://blog.adarshdubey.com/nights-weekends-chronicles-igniting-the-spark-of-ideas",
 		},
-		isFirst: false,
-		isLast: false,
 	},
 	{
 		title: "Decided to build Timeloom",
@@ -131,8 +113,6 @@ export const TIMELINE: TimelineType = [
 			url: "https://twitter.com/inclinedadarsh/status/1689287740297302016?s=20",
 		},
 		location: "Buildspace",
-		isFirst: false,
-		isLast: false,
 	},
 	{
 		title: "Participated in Nights & Weekends S4",
@@ -142,8 +122,6 @@ export const TIMELINE: TimelineType = [
 			text: "Buildspace's website",
 			url: "https://buildspace.so/",
 		},
-		isFirst: false,
-		isLast: true,
 	},
 ];
 

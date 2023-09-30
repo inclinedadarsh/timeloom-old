@@ -59,8 +59,6 @@ export type ShortLogType = {
 		url: string;
 	};
 	icon: TimelineIconType;
-	isFirst: boolean;
-	isLast: boolean;
 };
 
 export type LongLogType = {
@@ -73,8 +71,6 @@ export type LongLogType = {
 	icon: TimelineIconType;
 	description: string;
 	location?: string;
-	isFirst: boolean;
-	isLast: boolean;
 };
 
 export type LogType = ShortLogType | LongLogType;

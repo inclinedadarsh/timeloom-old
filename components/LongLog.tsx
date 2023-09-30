@@ -10,12 +10,8 @@ const LongLog = ({ className, log, ...props }: LongLogProps) => {
 			className={`${className} flex relative py-2 gap-3 md:gap-5`}
 			{...props}
 		>
-			{!log.isFirst && (
-				<div className="w-[2px] h-1/5 bg-border absolute top-0 left-5 z-0" />
-			)}
-			{!log.isLast && (
-				<div className="w-[2px] h-[90%] bg-border absolute top-[10%] left-5 z-0" />
-			)}
+			<div className="w-[2px] h-1/5 bg-border absolute top-0 left-5 z-0" />
+			<div className="w-[2px] h-[90%] bg-border absolute top-[10%] left-5 z-0" />
 			<TimelineIcon icon={log.icon} size="lg" />
 			<div className="flex-1 flex flex-col gap-3 px-5 py-4 border-2 border-border rounded-xl bg-muted">
 				<h2 className="font-medium text-base md:text-xl lg:text-lg border-none">
