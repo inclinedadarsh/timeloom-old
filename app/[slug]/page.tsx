@@ -2,70 +2,48 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import axios from "axios";
-import { Button, buttonVariants } from "@/components/ui/button";
-import { useToast } from "@/components/ui/use-toast";
 import { Loader2 } from "lucide-react";
-import logout from "@/lib/logout";
+import { TimelineType, ProfileApiType } from "@/types";
+import Profile from "@/components/Profile";
+import Timeline from "@/components/Timeline";
 
 const Page = ({ params }: { params: { slug: string } }) => {
-	const [data, setData] = useState<Data | undefined>(undefined);
+	const [profile, setProfile] = useState<ProfileApiType | undefined>(
+		undefined
+	);
+	const [timeline, setTimeline] = useState<TimelineType | undefined>(
+		undefined
+	);
 	const [loading, setLoading] = useState(true);
-	const [isLoggingOut, setIsLoggingOut] = useState(false);
-
-	const router = useRouter();
-	const { toast } = useToast();
-
-	interface Data {
-		isLoggedIn: boolean;
-		isSelf: boolean;
-		isAvailable: boolean;
-	}
 
 	useEffect(() => {
 		setLoading(true);
 
 		const getData = async (slug: string) => {
 			try {
-				const response = await axios.post(
-					"/api/users/user",
-					{
+				const user = await axios.get("/api/users/user", {
+					params: {
 						username: slug,
 					},
-					{
-						withCredentials: true,
-					}
-				);
-				setData(response.data);
+					withCredentials: true,
+				});
+				setProfile(user.data);
+
+				const timeline = await axios.get("/api/users/log", {
+					params: {
+						username: slug,
+					},
+				});
+				setTimeline(timeline.data.logs);
 			} catch (error) {
-				setData(undefined);
+				setProfile(undefined);
 			}
 		};
 
 		getData(params.slug);
 		setLoading(false);
 	}, [params.slug]);
-
-	const handleLogout = async () => {
-		try {
-			setIsLoggingOut(true);
-			await logout();
-			toast({
-				title: "Logged out successfully",
-				description: "Redirecting you to the homepage...",
-			});
-			router.push("/");
-		} catch (error) {
-			toast({
-				title: "Failed to log out",
-				description: error.message,
-				variant: "destructive",
-			});
-		} finally {
-			setIsLoggingOut(false);
-		}
-	};
 
 	if (loading) {
 		return (
@@ -75,52 +53,51 @@ const Page = ({ params }: { params: { slug: string } }) => {
 		);
 	}
 
+	if (profile?.doesExist === false) {
+		return (
+			<div className="max-w-2xl mx-auto mt-10 px-6">
+				<h1 className="lg:text-5xl spacing tracking-normal text-4xl font-bold">
+					/{params.slug}
+				</h1>
+				<p className="mt-4">
+					Yayy 🎉. This username is available! If you want to claim
+					this username, you can simply create a new account and claim
+					this username.
+				</p>
+				<p className="mt-4">
+					You&apos;ll be able to create your own timeline like{" "}
+					<Link
+						href="/adarsh"
+						className="underline hover:no-underline text-link"
+					>
+						this one
+					</Link>
+					.
+				</p>
+			</div>
+		);
+	}
+
 	return (
-		<div className="max-w-2xl mx-auto mt-10 px-6">
-			<h1 className="lg:text-5xl spacing tracking-normal text-4xl font-bold">
-				/{params.slug}
-			</h1>
-			<p className="mt-4">
-				{data?.isSelf &&
-					"Congratulations 🎉. You have successfully claimed this username. I'll shoot you an email as soon as I am done with the development so you can get started."}
-				{data?.isAvailable
-					? data?.isLoggedIn
-						? "Yayy 🎉. This username is available! But as you're already logged in, you'll first have to logout and then create a new account to claim this username."
-						: "Yayy 🎉. This username is available! If you want to claim this username, you can simply create a new account and claim this username."
-					: data?.isSelf
-					? ""
-					: "Unfortunately, this username is not available. But heyy, this isn't the end of the world. Go ahead and try a different username :)"}
-			</p>
-			<p className="mt-4">
-				Once the product is launched, you&apos;ll be able to create your
-				own timeline like{" "}
-				<Link
-					href="/adarsh"
-					className="underline hover:no-underline text-link"
-				>
-					this one
-				</Link>
-				.
-			</p>
-			{data?.isLoggedIn ? (
-				<Button
-					onClick={handleLogout}
-					variant="outline"
-					disabled={isLoggingOut ? true : false}
-					className="mt-6"
-				>
-					{isLoggingOut && <Loader2 className="animate-spin" />}
-					Log out
-				</Button>
+		<div className="container flex flex-col lg:flex-row gap-6">
+			<div className="relative max-w-lg lg:max-w-none mx-auto lg:flex-1">
+				{profile && (
+					<Profile
+						profile={profile.user}
+						isSelf={profile.isSelf}
+						className="py-12 sticky max-w-full top-0"
+					/>
+				)}
+			</div>
+			{timeline && timeline.length != 0 ? (
+				<Timeline
+					className="max-w-3xl lg:max-w-none mx-auto lg:flex-2"
+					timeline={timeline}
+				/>
 			) : (
-				<Link
-					href="/signup"
-					className={`${buttonVariants({ variant: "default" })} mt-6`}
-				>
-					{data?.isAvailable
-						? "Claim this username!"
-						: "Create an account"}
-				</Link>
+				<div className="max-w-3xl lg:max-w-none mx-auto lg:flex-2 flex justify-center items-center">
+					User has not created any logs yet :&#40;
+				</div>
 			)}
 		</div>
 	);

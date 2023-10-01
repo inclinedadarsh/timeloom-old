@@ -27,7 +27,7 @@ const ShortLog = ({ className, log, ...props }: ShortLogProps) => {
 					</Link>
 				)}
 				<p className="text-sm text-muted-foreground pl-2">
-					{log.date.toLocaleDateString()}
+					{new Date(log.date).toLocaleDateString()}
 				</p>
 			</div>
 		</div>

@@ -31,7 +31,7 @@ const Navbar = () => {
 		toast({
 			title: "Logged out successfully",
 		});
-	}, []);
+	}, [toast]);
 
 	return (
 		<div className="container flex px-4 py-6 justify-between">

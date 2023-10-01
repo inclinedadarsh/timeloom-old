@@ -1,7 +1,3 @@
-export interface ProfileProps extends React.HTMLAttributes<HTMLDivElement> {
-	className?: string;
-}
-
 export interface TimelineProps extends React.HTMLAttributes<HTMLDivElement> {
 	className?: string;
 	timeline: TimelineType;
@@ -26,6 +22,18 @@ export interface ProfileType {
 		text: string;
 		link: string;
 	};
+}
+
+export interface ProfileApiType {
+	isSelf: boolean;
+	user: ProfileType;
+	doesExist: boolean;
+}
+
+export interface ProfileProps extends React.HTMLAttributes<HTMLDivElement> {
+	className?: string;
+	profile: ProfileType;
+	isSelf: boolean;
 }
 
 export interface TagProps extends React.HTMLAttributes<HTMLSpanElement> {

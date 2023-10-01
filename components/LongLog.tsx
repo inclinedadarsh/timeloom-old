@@ -34,7 +34,7 @@ const LongLog = ({ className, log, ...props }: LongLogProps) => {
 					<div className="flex gap-2 items-center text-muted-foreground">
 						<CalendarIcon size={20} strokeWidth={1.5} />
 						<span className="">
-							{log.date.toLocaleDateString()}
+							{new Date(log.date).toLocaleDateString()}
 						</span>
 					</div>
 				</div>

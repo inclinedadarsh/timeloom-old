@@ -3,13 +3,14 @@ import { NextRequest, NextResponse } from "next/server";
 import authData from "@/lib/authData";
 import { connect } from "@/database/dbConfig";
 import User from "@/models/userModel";
+import Log from "@/models/logModel";
 
 connect();
 
-const POST = async (request: NextRequest) => {
+const GET = async (request: NextRequest) => {
 	try {
-		const reqBody = await request.json();
-		const { username } = reqBody;
+		const username = request.nextUrl.searchParams.get("username");
+
 		if (!username) {
 			return NextResponse.json(
 				{ message: "No username recieved!" },
@@ -17,29 +18,31 @@ const POST = async (request: NextRequest) => {
 			);
 		}
 
-		let isLoggedIn = false,
-			isSelf = false,
-			isAvailable = false;
+		let isSelf = false;
+		let doesExist = true;
 
 		const data = authData(request);
-		if (data) {
-			isLoggedIn = true;
-		}
 
 		if (data?.username === username) {
 			isSelf = true;
 		}
 
-		const user = await User.findOne({ username });
+		let user = await User.findOne({ username });
 		if (!user) {
-			isAvailable = true;
+			doesExist = false;
+		}
+
+		// remove password field from user object before sending
+		if (user) {
+			user = user.toObject();
+			delete user.password;
 		}
 
 		return NextResponse.json(
 			{
-				isLoggedIn,
 				isSelf,
-				isAvailable,
+				user,
+				doesExist,
 			},
 			{
 				status: 200,
@@ -57,4 +60,4 @@ const POST = async (request: NextRequest) => {
 	}
 };
 
-export { POST };
+export { GET };
