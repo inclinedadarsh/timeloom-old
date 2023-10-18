@@ -7,7 +7,7 @@ const Footer = () => {
 				Made with &lt;3 by&nbsp;
 				<Link
 					href="https://bento.me/adarsh"
-					className="hover:underline text-white"
+					className="hover:underline dark:text-white text-black"
 				>
 					Adarsh Dubey
 				</Link>
