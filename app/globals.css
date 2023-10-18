@@ -78,14 +78,14 @@
 		--link: 220 100% 66%;
 	}
 	.light {
-		--background: 240 100% 100%;  
+		--background: 240 100% 98%;
 		--foreground: 0 0% 0%;       
 	  
-		--card: 240 10% 3.9%;
-		--card-foreground: 0 0% 98%;
+		--card: 240 100% 98%;
+		--card-foreground: 0 0% 0%;
 	  
-		--popover: 240 10% 3.9%;
-		--popover-foreground: 0 0% 98%;
+		--popover: 240 100% 98%;
+		--popover-foreground: 0 0% 0%;
 	  
 		--primary: 0 0% 98%;
 		--primary-foreground: 0 0% 100%;
