@@ -37,7 +37,7 @@ export default function Home() {
 					Timeloom helps you to document your technical journey in an
 					activity timeline like page. You can create your own page,
 					craft it as you like and show it off to the world.{" "}
-					<span className="dark:text-white font-medium">
+					<span className="dark:text-white text-black font-medium">
 						Claim your username today!
 					</span>
 				</p>
