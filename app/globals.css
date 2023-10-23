@@ -4,6 +4,10 @@
 
 @layer base {
 	:root {
+		--icon: 217 19% 27%;
+		--radius: 0.5rem;
+		--transparent: rgba(255, 255, 255, 0);
+		
 		--background: 240 100% 98%;
 		--foreground: 0 0% 0%;       
 	  
@@ -37,9 +41,6 @@
 	  
 		--link: 220 100% 66%;
 		
-		--icon: 217 19% 27%;
-		--radius: 0.5rem;
-		--transparent: rgba(255, 255, 255, 0);
 	}
 
 	.dark {
