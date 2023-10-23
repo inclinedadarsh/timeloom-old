@@ -115,7 +115,7 @@
 
 @layer base {
 	:root{
-		@apply dark:dark light;
+		@apply dark:dark;
 	}
 	html {
 		scroll-behavior: smooth;
