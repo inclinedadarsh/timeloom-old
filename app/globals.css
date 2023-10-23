@@ -7,7 +7,10 @@
 		--icon: 217 19% 27%;
 		--radius: 0.5rem;
 		--transparent: rgba(255, 255, 255, 0);
+		--primary-custom: 247 92% 60%;
+		--primary-custom-foreground: 0 0% 100%;
 		
+
 		--background: 240 100% 98%;
 		--foreground: 0 0% 0%;       
 	  
@@ -20,8 +23,6 @@
 		--primary: 247 92% 60%;
 		--primary-foreground: 0 0% 0%;
 	  
-		--primary-custom: 247 92% 60%;
-		--primary-custom-foreground: 0 0% 100%;
 	  
 		--secondary: 235 32% 92%;
 		--secondary-foreground: 0 0% 0%;
@@ -55,9 +56,6 @@
 
 		--primary: 0 0% 98%;
 		--primary-foreground: 0 0% 100%;
-
-		--primary-custom: 247 92% 60%;
-		--primary-custom-foreground: 0 0% 100%;
 
 		--secondary: 240 3.7% 15.9%;
 		--secondary-foreground: 0 0% 98%;
