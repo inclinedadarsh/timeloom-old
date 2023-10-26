@@ -4,6 +4,7 @@ import morgan from "morgan";
 
 // Importing all the routes
 import signupRoute from "./routes/signupRoute.ts";
+import loginRoute from "./routes/loginRoute.ts";
 
 const app = express();
 
@@ -16,5 +17,6 @@ if (process.env.NODE_ENV === "development") {
 }
 
 app.use("/api/v1/users/signup", signupRoute);
+app.use("/api/v1/users/login", loginRoute);
 
 export { app };
