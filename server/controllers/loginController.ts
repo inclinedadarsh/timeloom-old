@@ -32,20 +32,14 @@ const loginController = async (req: Request, res: Response) => {
 
 		const token = await jwt.sign(tokenData, process.env.TOKEN_SECRET!);
 
-		const response = res.status(200).json({
+		console.log(token);
+
+		res.cookie("token", token).status(200).json({
 			message: "User logged in successfully",
 			success: true,
 		});
-
-		response.cookie("token", token, {
-			httpOnly: true,
-		});
-
-		return response;
 	} catch (error) {
-		return res
-			.status(500)
-			.json({ error, message: "Error logging in user" });
+		res.status(500).json({ error, message: "Error logging in user" });
 	}
 };
 
