@@ -92,6 +92,11 @@ module.exports = {
 					foreground: "rgba(0, 230, 196, 1)",
 					border: "rgba(0, 230, 196, .5)",
 				},
+				"tag-pink-light": {
+					DEFAULT: "rgba(216, 118, 227, .18)",
+					foreground: "rgba(209, 137, 168, 1)",
+					border: "rgba(209, 137, 168, .5)",
+				},
 				"tag-pink": {
 					DEFAULT: "rgba(216, 118, 227, .18)",
 					foreground: "rgba(217, 126, 229, 1)",
