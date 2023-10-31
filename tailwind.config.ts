@@ -82,6 +82,11 @@ module.exports = {
 					foreground: "rgba(162, 238, 239, 1)",
 					border: "rgba(162, 238, 239, .5)",
 				},
+				"tag-green-light": {
+					DEFAULT: "rgba(0, 134, 114, .18)",
+					foreground: "rgba(0, 169, 144, 1)",
+					border: "rgba(0, 169, 144, .5)",
+				},
 				"tag-green": {
 					DEFAULT: "rgba(0, 134, 114, .18)",
 					foreground: "rgba(0, 230, 196, 1)",
