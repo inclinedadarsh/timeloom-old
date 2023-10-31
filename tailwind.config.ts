@@ -62,6 +62,11 @@ module.exports = {
 					DEFAULT: "hsl(var(--card))",
 					foreground: "hsl(var(--card-foreground))",
 				},
+				"tag-purple-light": {
+					DEFAULT: "rgba(112, 87, 255, .18)",
+					foreground: "rgba(90, 34, 139, 1)",
+					border: "rgba(90, 34, 139, .5)",
+				},
 				"tag-purple": {
 					DEFAULT: "rgba(112, 87, 255, .18)",
 					foreground: "rgba(193, 184, 255, 1)",
