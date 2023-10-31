@@ -72,6 +72,11 @@ module.exports = {
 					foreground: "rgba(193, 184, 255, 1)",
 					border: "rgba(193, 184, 255, .5)",
 				},
+				"tag-cyan-light": {
+					DEFAULT: "rgba(162, 238, 239, .18)",
+					foreground: "rgba(22, 128, 136, 1)",
+					border: "rgba(22, 128, 136, .5)",
+				},
 				"tag-cyan": {
 					DEFAULT: "rgba(162, 238, 239, .18)",
 					foreground: "rgba(162, 238, 239, 1)",
